@@ -1,0 +1,44 @@
+API resources are templates 
+where you define how you want the JSON data to be returned back to the user
+when they send an API request.
+
+ex. php artisan make:resource RESOURCE_NAME(PetitionResource)
+This will create API resource for a single Petition
+
+When we want to return more than one resource, more than one Petition 
+we need to create a resource collection.
+php artisan make:resource PetitionCollection
+___________________________________________________________________________________
+
+php artisan make:model Petition -mfs (create also migration, factory and seeder)
+php artisan make:controller PetitionController --api --model=Petition
+php artisan make:resource PetitionResource
+php artisan make:resource PetitionCollection
+___________________________________________________________________________________
+
+php artisan db:seed --class=PetitionSeeder
+!!! with big applications you would like to run seeders individually
+
+___________________________________________________________________________________
+
+// JUST FOR REFERENCE
+Route::get('/petitions', [PetitionController::class, 'index']);
+Route::post('/petitions', [PetitionController::class, 'index']);
+
+Route::resource('/petitions', PetitionController::class)->only(['index', 'store']);
+
+Route::apiResource('petitions', PetitionController::class);
+___________________________________________________________________________________
+
+API resources - way to structure JSON data
+
+API resources 
+  -are templates that define the structure of JSON data returned in the response.
+  -allow us to transform the data we send to the user
+  example: hide some fields or add computed field
+
+HOW IT WORK
+When user request some data, 
+we get the data from database,
+pass it thrue resource template,
+and that user get
