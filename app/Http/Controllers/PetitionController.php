@@ -6,6 +6,7 @@ use App\Http\Resources\PetitionCollection;
 use App\Http\Resources\PetitionResource;
 use App\Models\Petition;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PetitionController extends Controller
 {
@@ -23,7 +24,11 @@ class PetitionController extends Controller
         // note: this will not show additional meta data like version or/and author
         // return PetitionResource::collection(Petition::all());
         // or
-        return new PetitionCollection(Petition::all());
+        // return new PetitionCollection(Petition::all());
+
+        // return response()->json(new PetitionCollection(Petition::all()), 200 );
+
+        return response()->json(new PetitionCollection(Petition::all()), Response::HTTP_OK);
 
     }
 
@@ -43,14 +48,14 @@ class PetitionController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. Change default return 
      *
      * @param  \App\Models\Petition  $petition
      * @return \Illuminate\Http\Response
      */
     public function show(Petition $petition)
     {
-        //
+        return new PetitionResource($petition);
     }
 
     /**
@@ -62,7 +67,11 @@ class PetitionController extends Controller
      */
     public function update(Request $request, Petition $petition)
     {
-        //
+        $petition->update($request->only([
+            'title', 'description', 'category', 'author', 'signees'
+        ]));
+
+        return new PetitionResource($petition);
     }
 
     /**
@@ -73,6 +82,8 @@ class PetitionController extends Controller
      */
     public function destroy(Petition $petition)
     {
-        //
+        $petition->delete();
+
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

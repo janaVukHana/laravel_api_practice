@@ -51,3 +51,7 @@ MassAsignments
    - set fillable or guarded property. Not both
    - fillable (list of fields we can give permision to go in database). USE when you have small number of fields.
    - guarded (list of fields that can not be mass assignment, go in database)
+_____________________________________________________________________________________
+
+PUT - replace everything or create new if it doesn't exist
+PATCH - replace only some fields
