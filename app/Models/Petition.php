@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Petition extends Model
 {
     use HasFactory;
+
+    // protected $guarded = [];
+    protected $fillable = ['title', 'description', 'category', 'author', 'signees'];
 }

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PetitionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. Note: default return was changed.
      *
      * @return \Illuminate\Http\Response
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
@@ -28,14 +28,18 @@ class PetitionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage Note: default return was changed.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return PetitionResource
      */
     public function store(Request $request)
     {
-        //
+        $petition = Petition::create($request->only([
+            'title', 'description', 'category', 'author', 'signees' 
+        ]));
+
+        return new PetitionResource($petition);
     }
 
     /**

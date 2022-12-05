@@ -42,3 +42,12 @@ When user request some data,
 we get the data from database,
 pass it thrue resource template,
 and that user get
+____________________________________________________________________________________
+
+MassAsignments
+
+-every time create method is used it check for mass assignment.
+-two ways to deal with:
+   - set fillable or guarded property. Not both
+   - fillable (list of fields we can give permision to go in database). USE when you have small number of fields.
+   - guarded (list of fields that can not be mass assignment, go in database)
