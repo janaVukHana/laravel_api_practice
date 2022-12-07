@@ -55,3 +55,45 @@ ________________________________________________________________________________
 
 PUT - replace everything or create new if it doesn't exist
 PATCH - replace only some fields
+_____________________________________________________________________________________
+
+POSTMAN - free API testing tool
+-test, develop and document
+_____________________________________________________________________________________
+
+API
+
+What is an API and How Does it Work? APIs for Beginners
+https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/how-apis-work/amp/
+
+The Fetch API Cheatsheet: Nine of the Most Common API Requests
+https://www.freecodecamp.org/news/fetch-api-cheatsheet/
+
+REST API Tutorial – REST Client, REST Service, and API Calls Explained With Code Examples
+https://www.freecodecamp.org/news/rest-api-tutorial-rest-client-rest-service-and-api-calls-explained-with-code-examples/
+
+What is an API?
+API stands for Application Programming Interface. 
+The application can be any software that performs a specific task 
+and the interface is a point where two applications communicate.
+
+One application acts as a client and the other acts as a server. 
+A client asks for some resource, say for example a photo, and the server sends that photo to the client.
+
+How Do APIs Work?
+Computers follow a protocol to communicate with each other. 
+A protocol is nothing but a set of rules that computers follow to communicate.
+
+Communications that take place over the HTTP protocol are also known as the request-response cycle 
+because this is exactly how the protocol works. 
+The client sends a request to the server and the server responds to the client regarding that request.
+
+The header includes information like the format our computer expects to get and accept – 
+ like language meaning, the language of the device, our operating system, and so on. 
+The body includes the data we need to send to the server, the nature keyword for example.
+
+Types of APIs :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+web APIs that use the HTTP protocol.
+Other types include internal APIs that are hidden from external users and that are used within a company only
+There are also open APIs that are available to be used by anyone for free (like the open weather map API)
+...
